@@ -6,7 +6,7 @@ before_install:
  - docker build -t neosystemcouk/react-test -f ./client/Dockerfile.dev ./client
 
 script:
- - docker run CI=true neosystemcouk/react-test npm test
+ - docker run -e CI=true neosystemcouk/react-test npm test
 
 after_succses:
  - docker build -t neosystemcouk/multi-client ./client
@@ -20,4 +20,3 @@ after_succses:
  - docker push neosystemcouk/multi-nginx
  - docker push neosystemcouk/multi-server
  - docker push neosystemcouk/multi-worker
-
