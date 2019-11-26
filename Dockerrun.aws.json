@@ -1,0 +1,36 @@
+{
+ "AWSEBDockerrunVersion": 2,
+ "containerDefinitions": [
+  {
+   "name": "client",
+   "image": "neosystemcouk/multi-client",
+   "hostname": "client",
+   "essential": false
+  },
+  {
+   "name": "worker",
+   "image": "neosystemcouk/multi-worker",
+   "hostname": "worker",
+   "essential": false
+  },
+  {
+   "name": "server",
+   "image": "neosystemcouk/multi-server",
+   "hostname": "api",
+   "essential": false
+  },
+  {
+   "name": "nginx",
+   "image": "neosystemcouk/nginx",
+   "hostname": "nginx",
+   "essential": true,
+   "portMappings": [
+    {
+     "hostPort": 80,
+     "containerPort": 80
+    }
+   ],
+   "links": ["client", "server"]
+  }
+ ]
+}
