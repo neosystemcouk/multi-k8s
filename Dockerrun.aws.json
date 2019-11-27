@@ -24,7 +24,7 @@
   },
   {
    "name": "nginx",
-   "image": "neosystemcouk/nginx",
+   "image": "neosystemcouk/multi-nginx",
    "hostname": "nginx",
    "essential": true,
    "portMappings": [
