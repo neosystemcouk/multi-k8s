@@ -20,3 +20,16 @@ after_succses:
  - docker push neosystemcouk/multi-nginx
  - docker push neosystemcouk/multi-server
  - docker push neosystemcouk/multi-worker
+
+deploy:
+ provider: elasticbeanstalk
+ region: us-east-2
+ app: multi-docker
+ env: MultiDocker-env
+ bucket_name: elasticbeanstalk-us-east-2-521230684545
+ bucket_path: docker-multi
+ on:
+  branch: master
+ access_key_id: $AWS_ACCESS_KEY
+ secret_access_key:
+  secure: $AWS_SECRET_KEY
